@@ -1144,18 +1144,21 @@ bool ReadBlockFromDisk(CBlock& block, const CBlockIndex* pindex, const Consensus
 
 CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
 {
-   int halvings = nHeight / consensusParams.nSubsidyHalvingInterval;    
-    if (halvings >= 64)
+   int halvings = nHeight / consensusParams.nSubsidyHalvingInterval;
+    // Force block reward to zero when right shift is undefined.
+    if (halvings >= 51)
         return 0;
     CAmount nSubsidy = INITIAL_REWARD * COIN;
-    if (nHeight == 1) return 30000000000 * COIN; // for premine coin on block 1
-    int y = nHeight / YEARLY_INTERVAL;
-    // reduce reward 20% ~yearly
-    if (y <= 1) {
-        nSubsidy = INITIAL_REWARD * COIN;
-    } else {
-        nSubsidy = INITIAL_REWARD * pow(0.8, (double(y) - 1.0)) * COIN;
-    }
+    if (nHeight == 1) return 30000000000 * COIN; // for genesis block reward
+    double h = (double) nHeight + 0.00000001;
+    double dy  = (double) YEARLY_INTERVAL;
+    double yr = h / dy;
+    int year = ceil(yr);
+    if(year <= 1){
+           nSubsidy = INITIAL_REWARD * COIN;
+    }else{
+           nSubsidy = INITIAL_REWARD * pow(0.8, (year - 1)) * COIN;
+    }    
     return nSubsidy;
 }
 
