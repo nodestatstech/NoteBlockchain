@@ -327,7 +327,7 @@ RES_FONTS = \
   qt/res/fonts/Akrobat-Regular.ttf \
   qt/res/fonts/Akrobat-Light.ttf \
   qt/res/fonts/Akrobat-Bold.ttf \
-  qt/res/fonts/Akrobat-Semibold.ttf
+  qt/res/fonts/Akrobat-SemiBold.ttf
 
 BITCOIN_QT_BASE_CPP = \
   qt/bantablemodel.cpp \
