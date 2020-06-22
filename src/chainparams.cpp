@@ -85,7 +85,7 @@ public:
         consensus.BIP65Height = 165000; //909f8d5a1a4cb305c0b8d7a9fba5f598191730fbeb0f5da101a5816064cd2b38
         consensus.BIP66Height = 165000; //909f8d5a1a4cb305c0b8d7a9fba5f598191730fbeb0f5da101a5816064cd2b38
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
-        consensus.nPowTargetTimespan = 5 * 60 * 60; // 5 Hours
+        consensus.nPowTargetTimespan = 5 * 60 * 60; // 5 Hours, Pre DigiShield
         consensus.nPowTargetSpacing = 30;// 30 Seconds
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
@@ -301,6 +301,9 @@ public:
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].bit = 1;
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nStartTime = Consensus::BIP9Deployment::ALWAYS_ACTIVE;
         consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = Consensus::BIP9Deployment::NO_TIMEOUT;
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIGISHIELD].bit = 2;
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIGISHIELD].nStartTime = 1592784000; // June 22nd 2020
+        consensus.vDeployments[Consensus::DEPLOYMENT_DIGISHIELD].nTimeout = 1624320000; // June 22nd 2021
 
         // The best chain should have at least this much work.
         consensus.nMinimumChainWork = uint256S("0x00");
