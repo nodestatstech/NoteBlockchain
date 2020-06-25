@@ -86,7 +86,8 @@ public:
         consensus.BIP66Height = 165000; //909f8d5a1a4cb305c0b8d7a9fba5f598191730fbeb0f5da101a5816064cd2b38
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 5 * 60 * 60; // 5 Hours
-        consensus.nPowTargetSpacing = 30;// 30 Seconds
+        consensus.nPowTargetSpacing = 30; // 30 Seconds
+        consensus.nPowTargetTimespanDigishield = 30 // Digishield 
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
         consensus.nRuleChangeActivationThreshold = 450; // 75% of 600 to accept rule
@@ -111,6 +112,9 @@ public:
 
         // By default assume that the signatures in ancestors of this block are valid.
         consensus.defaultAssumeValid = uint256S("0xf18022b25a767a6c2bca01276320ad3d2e6fffba28239df970f511a0b9e7d922"); //160578
+
+        // Hardfork block number
+        nSwitchDIGIblock = 1297596;
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -203,6 +207,7 @@ public:
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 5 * 60 * 60; // 3.5 days
         consensus.nPowTargetSpacing = 30;
+        consensus.nPowTargetTimespanDigishield = 30;
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = false;
         consensus.nRuleChangeActivationThreshold = 450; // 75% for testchains
@@ -227,6 +232,8 @@ public:
         // By default assume that the signatures in ancestors of this block are valid.
         consensus.defaultAssumeValid = uint256S("0x00"); //343833
 
+        // Hardfork Params
+        nSwitchDIGIblock = 100;
 
         pchMessageStart[0] = 0xda;
         pchMessageStart[1] = 0xe7;
@@ -288,6 +295,7 @@ public:
         consensus.powLimit = uint256S("7fffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 5 * 60 * 60; // two weeks
         consensus.nPowTargetSpacing = 30;
+        consensus.nPowTargetTimespanDigishield = 30;
         consensus.fPowAllowMinDifficultyBlocks = true;
         consensus.fPowNoRetargeting = true;
         consensus.nRuleChangeActivationThreshold = 450; // 75% for testchains
@@ -307,6 +315,9 @@ public:
 
         // By default assume that the signatures in ancestors of this block are valid.
         consensus.defaultAssumeValid = uint256S("0x00");
+
+        // Hardfork Params
+        nSwitchDIGIblock = 100;
 
         pchMessageStart[0] = 0xad;
         pchMessageStart[1] = 0xe2;
