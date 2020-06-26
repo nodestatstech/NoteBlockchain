@@ -11,6 +11,7 @@
 #include <primitives/block.h>
 #include <uint256.h>
 #include <util.h>
+#include <chainparams.h>
 
 unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHeader *pblock, const Consensus::Params& params)
 {

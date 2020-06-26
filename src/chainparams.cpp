@@ -87,7 +87,7 @@ public:
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 5 * 60 * 60; // 5 Hours
         consensus.nPowTargetSpacing = 30; // 30 Seconds
-        consensus.nPowTargetTimespanDigishield = 30 // Digishield 
+        consensus.nPowTargetTimespanDigishield = 30; // Digishield 
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.fPowNoRetargeting = false;
         consensus.nRuleChangeActivationThreshold = 450; // 75% of 600 to accept rule
