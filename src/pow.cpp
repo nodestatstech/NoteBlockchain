@@ -29,7 +29,7 @@ unsigned int GetNextWorkRequired(const CBlockIndex* pindexLast, const CBlockHead
 
 
     // Only change once per difficulty adjustment interval
-    if if ((pindexLast->nHeight+1) % adjustmentInterval != 0)
+    if ((pindexLast->nHeight+1) % adjustmentInterval != 0)
     {
         if (params.fPowAllowMinDifficultyBlocks)
         {
