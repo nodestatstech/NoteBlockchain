@@ -114,7 +114,7 @@ public:
         consensus.defaultAssumeValid = uint256S("0xf18022b25a767a6c2bca01276320ad3d2e6fffba28239df970f511a0b9e7d922"); //160578
 
         // Hardfork block number
-        nSwitchDIGIblock = 1297596;
+        nSwitchDIGIblock = 100;
 
         /**
          * The message start string is designed to be unlikely to occur in normal data.
