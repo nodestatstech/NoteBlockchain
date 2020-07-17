@@ -49,7 +49,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
  */
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward)
 {
-    const char* pszTimestamp = "Whats todays’ news.Need to read newspaper.";
+    const char* pszTimestamp = "CP24.com 16/July/2020 Ford: Blue Jays given clearance to play at home";
     const CScript genesisOutputScript = CScript() << ParseHex("04DC507936C579A0913EEFE47BAFA969D2F83C76929D0CC690A4F56C1CC4A43EBEF612BA1596A898505FB4EFA44E2C87EDFED5975FD0A2B27AB2AC299C16FE7346") << OP_CHECKSIG;
     return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
@@ -108,7 +108,7 @@ public:
 
 
         // The best chain should have at least this much work.
-        consensus.nMinimumChainWork = uint256S("0x00000000000000000000000000000000000000000000000000000d905d06346a");
+        consensus.nMinimumChainWork = uint256S("0x0000000000000000000000000000000000000000000000000000000000000000");
 
         // By default assume that the signatures in ancestors of this block are valid.
         consensus.defaultAssumeValid = uint256S("0xf18022b25a767a6c2bca01276320ad3d2e6fffba28239df970f511a0b9e7d922"); //160578
@@ -128,10 +128,10 @@ public:
         nDefaultPort = 17158;        
         nPruneAfterHeight = 100000;
 
-        genesis = CreateGenesisBlock(1542718651, 2085390519, 0x1e0ffff0, 1, 50 * COIN);
+        genesis = CreateGenesisBlock(1594857600, 1001803, 0x1e0ffff0, 1, 50 * COIN);
         consensus.hashGenesisBlock = genesis.GetHash();
-        assert(consensus.hashGenesisBlock == uint256S("0x270f3e7b185c412d57ba913d10658df54f15201a67d736cb4071a4ec4eb54836"));
-        assert(genesis.hashMerkleRoot == uint256S("0x7d2bef0e42d82d2b01af74ca942430e0373076ea00f5e8a366dfc1623bb17963"));
+        assert(consensus.hashGenesisBlock == uint256S("0x27aba88889abea4c8ca0b5db10f668923eada250f283d422609e4bb6bd169200"));
+        assert(genesis.hashMerkleRoot == uint256S("073af23f6575d96359927200299ba86256216e2dea14961edbbf003c0463173b"));
 
         // Note that of those with the service bits flag, most only support a subset of possible options
         // vSeeds.emplace_back("52.52.160.103");
@@ -152,13 +152,16 @@ public:
         fMineBlocksOnDemand = false;
 
          checkpointData = {
+             {
+                {     0, uint256S("0x27aba88889abea4c8ca0b5db10f668923eada250f283d422609e4bb6bd169200")},
+            }
            };
 
         chainTxData = ChainTxData{
             // Data from rpc: getchaintxstats 25376 (blockhash : 7ff5e20634ce399cf0405c4099ffa2c13ea8ea0f2bdff9a6e50624e794f782cc)
-            /* nTime    */ 1551968032,
-            /* nTxCount */ 171379,
-            /* dTxRate  */ 0.033659470031163};
+            /* nTime    */ 1594857600,
+            /* nTxCount */ 0,
+            /* dTxRate  */ 0};
 
     }
 };
